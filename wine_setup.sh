@@ -22,7 +22,7 @@
 # Requirements: dialog, curl, winetricks, wine, box64.
 #
 # Base folders and executable locations
-PORTS_BASE="/storage/roms/ports"
+PORTS_BASE="/storage/roms/windows"
 # Default dedicated Wine prefixes go here:
 BASE_WINE_PREFIX="/storage/.wine-setup"
 # General (shared) Wine prefix location:
