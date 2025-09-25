@@ -1,5 +1,5 @@
 # Rocknix-WINE
-script for generating wine folder structure, wine prefix and launch script in Rocknix
+script for generating wine64 folder structure, wine prefix and launch script in Rocknix
 
 ```
 curl -L https://github.com/profork/Rocknix-WINE/raw/main/wine_setup.sh | bash
