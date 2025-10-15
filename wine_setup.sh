@@ -22,6 +22,30 @@
 # Requirements: dialog, curl, winetricks, wine, box64.
 #
 # Base folders and executable locations
+
+
+# Ask user
+dialog --title "Wine Setup" \
+  --yesno "Would you like to disable EmulationStation so you can see Wine dialog boxes?" 8 70
+
+response=$?
+
+case $response in
+  0)  # Yes
+      systemctl stop essway
+      dialog --title "EmulationStation Disabled" \
+        --msgbox "EmulationStation (essway) has been stopped.\n\nAfter Wine setup finishes, run:\n\nsystemctl start essway" 10 60
+      ;;
+  1)  # No
+      dialog --title "Aborted" --msgbox "EmulationStation will remain running." 6 40
+      ;;
+  255) # ESC
+      dialog --title "Cancelled" --msgbox "Operation cancelled." 6 40
+      ;;
+esac
+
+clear
+
 PORTS_BASE="/storage/roms/windows"
 # Default dedicated Wine prefixes go here:
 BASE_WINE_PREFIX="/storage/.wine-setup"
@@ -494,4 +518,4 @@ Files created/modified:
 
 Please copy your game data into the 'data' folder before launching."
 clear
-echo "Setup complete. Run: ${LAUNCH_SCRIPT} after you copy your game over to the data folder"
+echo "Setup complete. Run: ${LAUNCH_SCRIPT} after you copy your game over to the data folder. If you deactivated emulationstation, run systemctl start essway or reboot to restart es"
